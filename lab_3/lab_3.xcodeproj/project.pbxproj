@@ -38,6 +38,8 @@
 		D111C05F298ECEDC008C5662 /* yay.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D111C04E298ECEDC008C5662 /* yay.mp3 */; };
 		D111C060298ECEDC008C5662 /* Dock51.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D111C050298ECEDC008C5662 /* Dock51.ttf */; };
 		D111C062298ECF03008C5662 /* ocean.png in Resources */ = {isa = PBXBuildFile; fileRef = D111C061298ECF03008C5662 /* ocean.png */; };
+		D111C066298ED12E008C5662 /* ScoreManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D111C064298ED12E008C5662 /* ScoreManager.swift */; };
+		D111C067298ED12E008C5662 /* CollisionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D111C065298ED12E008C5662 /* CollisionManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +75,8 @@
 		D111C04E298ECEDC008C5662 /* yay.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = yay.mp3; sourceTree = "<group>"; };
 		D111C050298ECEDC008C5662 /* Dock51.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Dock51.ttf; sourceTree = "<group>"; };
 		D111C061298ECF03008C5662 /* ocean.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ocean.png; sourceTree = "<group>"; };
+		D111C064298ED12E008C5662 /* ScoreManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreManager.swift; sourceTree = "<group>"; };
+		D111C065298ED12E008C5662 /* CollisionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollisionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,7 @@
 		D111C015298ECE88008C5662 /* lab_3 */ = {
 			isa = PBXGroup;
 			children = (
+				D111C063298ED12E008C5662 /* Managers */,
 				D111C03D298ECEDC008C5662 /* Assets */,
 				D111C032298ECEAC008C5662 /* Core */,
 				D111C02D298ECEAC008C5662 /* GameObjects */,
@@ -186,6 +191,15 @@
 				D111C050298ECEDC008C5662 /* Dock51.ttf */,
 			);
 			path = fonts;
+			sourceTree = "<group>";
+		};
+		D111C063298ED12E008C5662 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				D111C064298ED12E008C5662 /* ScoreManager.swift */,
+				D111C065298ED12E008C5662 /* CollisionManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D111C067298ED12E008C5662 /* CollisionManager.swift in Sources */,
 				D111C037298ECEAC008C5662 /* Cloud.swift in Sources */,
 				D111C03A298ECEAC008C5662 /* GameProtocol.swift in Sources */,
 				D111C03B298ECEAC008C5662 /* GameObject.swift in Sources */,
@@ -286,6 +301,7 @@
 				D111C039298ECEAC008C5662 /* Player.swift in Sources */,
 				D111C03C298ECEAC008C5662 /* Layer.swift in Sources */,
 				D111C038298ECEAC008C5662 /* Ocean.swift in Sources */,
+				D111C066298ED12E008C5662 /* ScoreManager.swift in Sources */,
 				D111C017298ECE88008C5662 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

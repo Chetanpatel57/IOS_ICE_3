@@ -7,6 +7,8 @@
 
 import SpriteKit
 import GameplayKit
+import AVFoundation
+import UIKit
 
 let screeSize = UIScreen.main.bounds
 var screenWidth: CGFloat?
@@ -47,7 +49,31 @@ class GameScene: SKScene {
             clouds.append(cloud)
             addChild(cloud)
         }
+        
+        let engineSound = SKAudioNode(fileNamed: "engine.mp3")
+               addChild(engineSound)
+               engineSound.autoplayLooped = true
+               engineSound.run(SKAction.changeVolume(to: 0.5, duration: 0))
+               
+               
+               // preload / prewarm impulse sounds
+               do
+               {
+                   let sounds: [String] = ["thunder", "yay"]
+                   for sound in sounds
+                   {
+                       let path: String = Bundle.main.path(forResource: sound, ofType: "mp3")!
+                       let url:URL = URL(fileURLWithPath: path)
+                       let avPlayer: AVAudioPlayer = try AVAudioPlayer(contentsOf: url)
+                       avPlayer.prepareToPlay()
+                   }
+               }
+               catch
+               {
+                   
+               }
     }
+    
     
     func touchDown(atPoint pos : CGPoint) {
         player?.TouchMove(newPos: CGPoint(x: pos.x, y: -640))
@@ -86,9 +112,14 @@ class GameScene: SKScene {
         ocean2?.Update()
         player?.Update()
         island?.Update()
-        for cloud in clouds{
-            cloud.Update()
-        }
+        CollisionManager.SquaredRadiusCheck(scene: self, object1: player!, object2: island!)
+                
+                // update each cloud in the clouds array
+                for cloud in clouds
+                {
+                    cloud.Update()
+                    CollisionManager.SquaredRadiusCheck(scene: self, object1: player!, object2: cloud)
+                }
     }
 }
 

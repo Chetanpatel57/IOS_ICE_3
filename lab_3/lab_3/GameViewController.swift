@@ -11,6 +11,8 @@ import GameplayKit
 
 class GameViewController: UIViewController {
 
+    @IBOutlet weak var LivesLabel: UILabel!
+    @IBOutlet weak var ScoreLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -34,6 +36,12 @@ class GameViewController: UIViewController {
                 }
             }
         }
+        
+        CollisionManager.gameViewController = self
+                ScoreManager.Score = 0
+                ScoreManager.Lives = 5
+                updateLivesLabel()
+                updateScoreLabel()
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
@@ -43,4 +51,13 @@ class GameViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    func updateScoreLabel()
+        {
+            ScoreLabel.text = "Score: \(ScoreManager.Score)"
+        }
+        
+        func updateLivesLabel()
+        {
+            LivesLabel.text = "Lives: \(ScoreManager.Lives)"
+        }
 }
